@@ -76,4 +76,10 @@ if [ "$HOST" = "" -o "$PORT" = "" ]; then
   usage 2
 fi
 
+
+if ! type "nc" > /dev/null; then
+    echo "Error: netcat is required for wait-for to run." >&2
+    exit 1
+fi 
+
 wait_for "$@"
