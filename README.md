@@ -11,6 +11,14 @@
   -- COMMAND ARGS                     Execute command with args after the test finishes
 ```
 
+## To include that in the Dockerfile
+```
+# download wait-for script
+RUN wget https://raw.githubusercontent.com/LukasForst/wait-for/master/wait-for
+RUN chmod +x wait-for
+```
+It is better to use `wget` and not `ADD` as `ADD` downloads file every time.
+
 ## Examples
 
 To check if [eficode.com](https://eficode.com) is available:
